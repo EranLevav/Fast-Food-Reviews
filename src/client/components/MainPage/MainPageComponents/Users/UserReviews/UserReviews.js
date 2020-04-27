@@ -4,6 +4,7 @@ import MainActions from "../../../actions"
 import ReviewCard from "../../Review/ReviewCard"
 import AppActions from "../../../../App/actions"
 import Loader from 'react-loader-spinner'
+import {Link} from 'react-router-dom'
 import './UserReviews.scss'
 
 class UserReviews extends Component {
@@ -28,7 +29,12 @@ class UserReviews extends Component {
                                 onDelete={(review_id) => this.props.deleteReviewEventHandler(review_id, this.props.user_name)}
                                 onEdit={(review) => this.props.editReviewEventHandler(review)}/> 
                     : 
-                    <h1>You don't have any reviews yet</h1>}
+                <div>
+                    <h2 style={{paddingTop: "10px"}}>You haven't written any reviews yet...</h2>
+                    <div className="center" style={{paddingTop: "25px",paddingBottom:"15px"}}> 
+                        <Link className="btn" to="/review"> Write your first review </Link>
+                    </div>
+                </div>}
             </div>
         );
     }

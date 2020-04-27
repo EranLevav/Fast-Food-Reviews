@@ -25,7 +25,7 @@ class MainPage extends Component {
                         <Route exact path="/settings" component={Settings}/>
                         <Route exact path="/users" component={UsersInfo}/>
                         <Route exact path="/review" component={Reviews}/>
-                        <Route exact path={`/reviews/${this.props.user_name}`} component={UserReviews}/>
+                        <Route exact path="/myreviews" component={UserReviews}/>
                         <Route exact path="/reviews/:user_name" component={UsersReviews}/>
                         <Route exact path="/editreview" component={EditReviewForm}/>
                         <Route exact path="/:restaurant_name" component={RestaurantReviews}/>

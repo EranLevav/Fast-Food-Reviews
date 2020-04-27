@@ -108,7 +108,7 @@ class Restaurants extends Component {
                              isIconDisplayed={true}
                   />
                 </div>
-                <h1>Restaurants NearBy you</h1>
+                <h1>Restaurants near you</h1>
                 {/* TODO: Search Button */}
                 {this.props.isLoading ? 
                   <Loader className="loader" type="Oval" color="Blue"/> :
