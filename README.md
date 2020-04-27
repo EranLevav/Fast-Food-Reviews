@@ -1,5 +1,8 @@
 # Fast Food Reviews
-
+### submitters:
+Eran Levav
+<br>Yaniv Fleischer
+#
 ### <i>Design of the Project:</i> <br><br>
 ## FrontEnd
 The front-end is divided into 2 parts, the Login Page and the Main Page.
