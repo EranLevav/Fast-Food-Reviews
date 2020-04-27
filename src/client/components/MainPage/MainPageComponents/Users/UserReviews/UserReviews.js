@@ -30,7 +30,7 @@ class UserReviews extends Component {
                                 onEdit={(review) => this.props.editReviewEventHandler(review)}/> 
                     : 
                 <div>
-                    <h2 style={{paddingTop: "10px"}}>You haven't written any reviews yet...</h2>
+                    <h2 style={{paddingTop: "10px"}}> You haven't written any reviews yet... </h2>
                     <div className="center" style={{paddingTop: "25px",paddingBottom:"15px"}}> 
                         <Link className="btn" to="/review"> Write your first review </Link>
                     </div>

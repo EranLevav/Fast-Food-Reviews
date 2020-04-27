@@ -27,7 +27,7 @@ class NavBar extends Component {
                         {this.props.user_name}
                     </div>    
                     <div className="dropdown-content">
-                        <Link className="dropdown-content-item" to="/myreviews">My reviews</Link>
+                        <Link className="dropdown-content-item" to="/myReviews">My reviews</Link>
                         <Link className="dropdown-content-item" to="/settings">Settings</Link>
                         <Link className="dropdown-content-item" to="/" onClick={this.signOut}>Sign Out</Link>
                     </div>
