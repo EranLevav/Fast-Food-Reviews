@@ -7,7 +7,7 @@ Eran Levav
 ## FrontEnd
 The front-end is divided into 2 parts, the Login Page and the Main Page.
 ### Login Page:
-Has a SignIn feature for regular users or users that want to log-in via facebook. <br>
+Has a Sign In feature for regular users or users that want to log-in via facebook. <br>
 Has a Register feature for new users, location is integrated with google maps.
 Forms are created via Redux-form.
 
