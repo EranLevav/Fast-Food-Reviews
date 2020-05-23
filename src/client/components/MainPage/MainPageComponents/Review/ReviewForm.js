@@ -129,7 +129,7 @@ class ReviewForm extends Component {
                 <div className="review-box-container">
                     <div className="review-header">Enter a new Review</div>
                     <form onSubmit={handleSubmit((values) => this.props.submitReview(values, this.props.user_name, reset))}>
-                                                {text_fields.map((field, index) =>
+                        {text_fields.map((field, index) =>
                             <div className="review-input-group" key={index}>
                             <Field name={field.name} type="input"
                                    component={renderField} label={field.label}
@@ -155,12 +155,12 @@ class ReviewForm extends Component {
                         <div className=" text center">
                             <button className="review-btn" type="submit"
                                     disabled={submitting}>
-                                <i className="fa fa-paper-plane"/>
                                 Submit Review
                             </button>
                             <button className="review-btn" type="button"
                                     disabled={submitting}
-                                    onClick={reset}>Clear Values
+                                    onClick={reset}>
+                                Clear Values
                             </button>
                         </div>
                     </form>
@@ -175,6 +175,7 @@ ReviewForm = reduxForm({
     required,
     validateImage,
     maxLength30,
+    enableReinitialize: true,
 })(ReviewForm);
 
 const mapStateToProps = (state) => {
@@ -182,7 +183,8 @@ const mapStateToProps = (state) => {
         user_name: state['login'].get('user_name'),
         location: state['login'].get('location'),
         avatar: state['login'].get('avatar'),
-        token: state['login'].get('token')
+        token: state['login'].get('token'),
+        initialValues: state['main'].get('addReviewByRestaurantName'), 
     }
 };
 

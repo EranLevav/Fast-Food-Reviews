@@ -1,4 +1,4 @@
-const {List, Map } = require('immutable');
+const { Map } = require('immutable');
 
 export default {
     app: Map({
@@ -32,6 +32,7 @@ export default {
       search_by_name_value: '',
       search_by_location_value: '',
       submit_review_done: false,
+      addReviewByRestaurantName:'',
       data_edit_review: [],
       reviews_by_user_name: '',
       reviews_by_restaurant_name: '', //todo change name

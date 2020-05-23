@@ -2,7 +2,7 @@ const multer = require('multer');
 const fs = require('fs');
 const User = require('../model/user');
 const Review = require('../model/review');
-const { userError, successResponse } = require('../utils/serverResponses');
+const { clientError, successResponse } = require('../utils/serverResponses');
 const { succLoginResponse  } = require('../utils/loginHelpers');
 
     // SET STORAGE
@@ -116,7 +116,7 @@ const { succLoginResponse  } = require('../utils/loginHelpers');
             }
 
             if (!new_user_name && !new_location && !file )
-                return userError(res, 'Error: all of the following fields are blank: new_user_name, new_location, file');
+                return clientError(res, 'Error: all of the following fields are blank: new_user_name, new_location, file');
 
             //prepering update values for editing user profile
             var update={"$set": {}};
@@ -172,13 +172,13 @@ const { succLoginResponse  } = require('../utils/loginHelpers');
                                 return serverError(res);
                             }
                             if (users.length === 0) {
-                                return userError(res, 'Error: username is incorrect');
+                                return clientError(res, 'Error: username is incorrect');
                             }
                             return succLoginResponse(users[0],res);
                         });
                     }
                     else {
-                        return userError(res, 'Failed to update user profile, username is incorrect');
+                        return clientError(res, 'Failed to update user profile, username is incorrect');
                     }
                 })
                 .catch(err => console.error(`Failed to update user profile, Error: ${err}`))

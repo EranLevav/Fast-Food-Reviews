@@ -108,36 +108,36 @@ class Restaurants extends Component {
                              isIconDisplayed={true}
                   />
                 </div>
-                <h1>Restaurants near you </h1>
+                <h1>Restaurants Near You</h1>
                 {/* TODO: Search Button */}
                 {this.props.isLoading ? 
                   <Loader className="loader" type="Oval" color="Blue"/> :
-                  <GoogleMapReact
-                      bootstrapURLKeys={{
-                          key: 'process.env.REACT_APP_KEY',
-                          libraries: ['places', 'directions']
-                          }}
-                      defaultZoom={14}
-                      defaultCenter={{ lat: this.props.lat , lng: this.props.lng }}
-                      onGoogleApiLoaded={({ map, maps }) => this.apiHasLoaded(map, maps)} // "maps" is the mapApi. Bad naming but that's their library.
-                    >
-                  {this.state.mapLoaded && 
-                      this.state.searchResults.map((result, key) => (
-                      <Marker lat={result.lat} 
-                              lng = {result.lng}
-                              name = {result.name}
-                              icon = {result.photoUrl}
-                              color="red"
-                      />))
-                  }
-                  <Marker
-                      lat={this.props.lat}
-                      lng={this.props.lng}
-                      name="Your Location"
-                      color="blue"
-                  />
-                  </GoogleMapReact>}
-                  {/* ''} */}
+                  // <GoogleMapReact
+                  //     bootstrapURLKeys={{
+                  //         key: 'process.env.REACT_APP_KEY',
+                  //         libraries: ['places', 'directions']
+                  //         }}
+                  //     defaultZoom={14}
+                  //     defaultCenter={{ lat: this.props.lat , lng: this.props.lng }}
+                  //     onGoogleApiLoaded={({ map, maps }) => this.apiHasLoaded(map, maps)} // "maps" is the mapApi. Bad naming but that's their library.
+                  //   >
+                  // {this.state.mapLoaded && 
+                  //     this.state.searchResults.map((result, key) => (
+                  //     <Marker lat={result.lat} 
+                  //             lng = {result.lng}
+                  //             name = {result.name}
+                  //             icon = {result.photoUrl}
+                  //             color="red"
+                  //     />))
+                  // }
+                  // <Marker
+                  //     lat={this.props.lat}
+                  //     lng={this.props.lng}
+                  //     name="Your Location"
+                  //     color="blue"
+                  // />
+                  // </GoogleMapReact>
+                  <h1>diactive google, save some money</h1>}
                 </div>
 
               {/* Results section */}

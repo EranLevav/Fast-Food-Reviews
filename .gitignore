@@ -1,6 +1,9 @@
 # api key
 .env
 
-#dependencies
+# dependencies
 /node_modules
 /uploads
+
+# TODO list
+.TODO.txt

@@ -63,11 +63,7 @@ const renderRatingField = ({label, input, meta: {touched, error}}) => {
             label: 'Very Satisfied',
         },
     };
-    //TODO: 1) hover change after choose
-    //      2) fix style center 
-    // upload more then 2-3 pic destroy width
-    //      3) limit number of caracters
-    //4) bathroom_quality: 0  not change
+
     const labels = {
         1: 'Useless',
         2: 'Poor',
@@ -92,7 +88,6 @@ const renderRatingField = ({label, input, meta: {touched, error}}) => {
             {touched && (error &&
                 <span className="review-danger-error">{error}<i className="fa fa-exclamation-triangle"></i></span>)}
             <div className="review-restaurant-rating">
-                {console.log('test value' + value)}
                 <Rating
                     name="customized-icons"
                     getLabelText={value => customIcons[value].label}
@@ -105,7 +100,6 @@ const renderRatingField = ({label, input, meta: {touched, error}}) => {
                     }}
                     {...input}
                 />
-                {console.log('test of input' , input)}
                 {<Box ml={2}>{labels[hover !== -1 ? hover : (input.value !== '' ? input.value : value)]}</Box>}
             </div>
         </div>
@@ -113,11 +107,6 @@ const renderRatingField = ({label, input, meta: {touched, error}}) => {
 };
 
 class EditReviewForm extends Component {
-
-    componentDidMount() {
-        //populate form when "Edit" is clicked
-        console.log('test edit:' , this.props.initialValues);
-    }
 
     render() {
         const {handleSubmit, pristine, reset, submitting, invalid} = this.props;
@@ -139,7 +128,7 @@ class EditReviewForm extends Component {
                 <div className="review-box-container">
                     <div className="review-header">Edit your Review</div>
                     <form onSubmit={handleSubmit((values) => this.props.submitReview(values, this.props.user_name, reset))}>
-                                                {text_fields.map((field, index) =>
+                        {text_fields.map((field, index) =>
                             <div className="review-input-group" key={index}>
                             <Field name={field.name} type="input"
                                    component={renderField} label={field.label}
@@ -163,14 +152,13 @@ class EditReviewForm extends Component {
                             />
                         </div>
                         <div className=" text center">
-                            <button className="review-btn" type="submit"
+                            <button className="review-btn" type="submit" 
                                     disabled={submitting}>
-                                <i className="fa fa-paper-plane"/>
                                 Submit Review
                             </button>
-                            <button className="review-btn" type="button"
-                                    disabled={submitting}
-                                    onClick={reset}>Clear Values
+                            <button className="review-btn" type="button" 
+                                    disabled={submitting} onClick={reset}>
+                                Undo Changes
                             </button>
                         </div>
                     </form>

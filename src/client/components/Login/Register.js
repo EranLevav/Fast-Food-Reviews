@@ -126,10 +126,6 @@ const renderLocationField = ({label, input, meta: {touched, error}}) => {
 
 class Register extends Component {
 
-    componentDidMount() {
-        this.props.isUserExistEventHandler('');
-    }
-
     componentDidUpdate(prevProps) {
         // Typical usage (don't forget to compare props):
         if (this.props.user_name !== prevProps.user_name) {
@@ -137,7 +133,6 @@ class Register extends Component {
             this.props.isUserExistEventHandler(this.props.user_name);
         }
     }
-    //todo limit field chatacters
     render() {
         const {handleSubmit, pristine, reset, submitting, invalid, hidePassword} = this.props;
         console.log('is user exist: ' + this.props.user_names);

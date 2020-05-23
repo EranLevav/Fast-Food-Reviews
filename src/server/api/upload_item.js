@@ -3,7 +3,7 @@ const fs = require('fs');
 const Image = require('../model/Image');
 const Images = require('../model/Images');
 
-const { serverError, userError, successResponse } = require('../utils/serverResponses');
+const { serverError, clientError, successResponse } = require('../utils/serverResponses');
 
 
 // SET STORAGE

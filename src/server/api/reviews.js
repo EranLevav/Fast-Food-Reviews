@@ -1,7 +1,7 @@
 const multer = require('multer');
 const fs = require('fs');
 const Review = require('../model/review');
-const { serverError, userError, successResponse } = require('../utils/serverResponses');
+const { serverError, clientError, successResponse } = require('../utils/serverResponses');
 
 
 // SET STORAGE
@@ -54,7 +54,7 @@ module.exports = (app) => {
 
             // validate request
             if (!user_name || !restaurant_name || !bathroom_quality || !staff_kindness || !cleanliness || !food_quality)
-                return userError(res, 'Error: one of the following fields are blank: ');
+                return clientError(res, 'Error: one of the following fields are blank: ');
 
 
             // save review
@@ -193,7 +193,7 @@ module.exports = (app) => {
 
             // validate request
             if (!bathroom_quality && !staff_kindness && !cleanliness)
-                return userError(res, 'Error: all of the following fields are blank: bathroom_quality, staff_kindness, cleanliness');
+                return clientError(res, 'Error: all of the following fields are blank: bathroom_quality, staff_kindness, cleanliness');
 
             //prepering update values for editing user profile
             var update_values={"$set": {}};
@@ -227,13 +227,13 @@ module.exports = (app) => {
                             }
 
                             if (reviews.length === 0) {
-                                return userError(res, 'Error: review is incorrect');
+                                return clientError(res, 'Error: review is incorrect');
                             }
                             return successResponse(res,reviews[0]);
                         });
                     }
                     else {
-                        return userError(res, 'Failed to edit user review, review id is incorrect');
+                        return clientError(res, 'Failed to edit user review, review id is incorrect');
                     }
                 })
                 .catch(err => console.error(`Failed to edit user review, Error: ${err}`))

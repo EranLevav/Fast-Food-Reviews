@@ -86,6 +86,15 @@ function loadRestaurantReviewsSuccess(restaurant_reviews) {
     }
 }
 
+function addReview(restaurant_name) {
+    return {
+        type: MainActionsConstants.ADD_REVIEW,
+        payload: {
+            restaurant_name: restaurant_name
+        }
+    }
+}
+
 function deleteReview(review_id) {
     return {
         type: MainActionsConstants.DELETE_REVIEW,
@@ -145,6 +154,7 @@ let MainActions = {
     loadUserReviewsSuccess,
     loadRestaurantReviews,
     loadRestaurantReviewsSuccess,
+    addReview,
     deleteReview,
     dataEditReview,
     editReview,

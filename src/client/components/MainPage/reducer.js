@@ -39,7 +39,13 @@ const MainReducer = (state = initialState.main, action) => {
             return state.set('user_reviews', action.payload.user_reviews);
          
         case MainActionsConstants.LOADֹֹֹ_RESTAURANT_REVIEWS_SUCCESS:
-            return state.set('restaurant_reviews', action.payload.restaurant_reviews);    
+            return state.set('restaurant_reviews', action.payload.restaurant_reviews); 
+
+        case MainActionsConstants.ADD_REVIEW:
+            var addReviewByRestaurantName = {
+                restaurant_name: action.payload.restaurant_name,
+            }
+            return state.set('addReviewByRestaurantName', addReviewByRestaurantName); 
 
         case MainActionsConstants.DATA_EDIT_REVIEW:
             const review = action.payload.review;

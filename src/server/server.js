@@ -34,7 +34,7 @@ const config = {
 mongoose.Promise = global.Promise;
 // MongoDB Connection
 if (process.env.NODE_ENV !== 'test') {
-  mongoose.connect(config.mongoURL, { useNewUrlParser: true }, (error) => {
+  mongoose.connect(config.mongoURL, { useUnifiedTopology:true ,useNewUrlParser: true }, (error) => {
     if (error) {
       console.error('Please make sure Mongodb is installed and running!');
       throw error;

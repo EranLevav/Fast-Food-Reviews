@@ -1,50 +1,48 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Loader from 'react-loader-spinner'
 import MainPage from "../MainPage/MainPage"
 import SnackActions from '../SnackBar/actions'
 import SnackBar from '../SnackBar/snackBar'
-import {LoginPage} from "../Login"
+import { LoginPage } from "../Login"
 import AppActions from "../App/actions"
-import {getFromStorage} from '../../utils/storage'
+import { getFromStorage } from '../../utils/storage'
 import './App.scss';
 
 class App extends Component {
 
-    componentDidMount(){
+    componentDidMount() {
+        //Upon initial login, we will validate whether the user has a token
         const obj = getFromStorage('fast_food_reviews');
-        if (obj && obj.token){
-            //verify token
-            const {token} = obj;
-            this.props.verifyEventHandler(token);
+        if (obj && obj.token) {
+            const { token } = obj;
+            this.props.verifyTokenActionEventHandler(token);
         }
-        else{
+        else {
             console.log("You are not connected");
             this.props.closeLoading();
         }
 
     }
-
-    //TODO: routing loginpage
     render() {
         return (
             <div>
-              {this.props.isLoading ? 
-                <Loader className="loader" type="Oval" color="Blue"/> :
-                <div>
-                    <div className="logo-site"/>
-                    <div className="root-container">
-                            {this.props.token ?  <MainPage/> : <LoginPage/>}
-                         
-                    </div>
-                    <SnackBar   openSnackBar={this.props.openSnackBar}
-                                closeSnackBar={this.props.closeSnackBar}
-                                snack_isSucc={this.props.snack_isSucc}
-                                snack_message={this.props.snack_message}
-                                display_snack={this.props.display_snack}
-                    />
-                </div>}
-            </div>    
+                <div className="logo-site" />
+                {this.props.isLoading ?
+                    <Loader className="loader" type="Oval" color="Blue" /> :
+                    <div>
+                        <div className="root-container">
+                            {this.props.token ? <MainPage /> : <LoginPage />}
+
+                        </div>
+                        <SnackBar openSnackBar={this.props.openSnackBar}
+                            closeSnackBar={this.props.closeSnackBar}
+                            snack_isSucc={this.props.snack_isSucc}
+                            snack_message={this.props.snack_message}
+                            display_snack={this.props.display_snack}
+                        />
+                    </div>}
+            </div>
         );
     }
 }
@@ -69,7 +67,7 @@ const mapDispatchToProps = (dispatch) => {
         closeSnackBar: () => {
             dispatch(SnackActions.closeSnackBar());
         },
-        verifyEventHandler: (token) => {
+        verifyTokenActionEventHandler: (token) => {
             dispatch(AppActions.verifyTokenAction(token));
         },
         closeLoading: () => {

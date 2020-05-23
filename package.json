@@ -1,7 +1,8 @@
 {
+  "name": "fast-foodreviews",
   "private": true,
-  "version": "0.0.1",
-  "description": "Flickr Gallery Template",
+  "version": "1.0.0",
+  "description": "Example of MERN project",
   "main": "babel.config.js",
   "scripts": {
     "dev": "webpack-dev-server",
@@ -10,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yanivfl/react-ass3.git"
+    "url": "git+https://github.com/EranLevav/Fast-Food-Reviews.git"
   },
   "keywords": [],
-  "author": "primereact",
+  "author": "primereact & Eran Levav & Yaniv Fleischer",
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
@@ -143,10 +144,9 @@
     ],
     "noprompt": false
   },
-  "name": "react-ass3",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yanivfl/react-ass3/issues"
+    "url": "https://github.com/EranLevav/Fast-Food-Reviews.git/issues"
   },
-  "homepage": "https://github.com/yanivfl/react-ass3#readme"
+  "homepage": "https://github.com/EranLevav/Fast-Food-Reviews.git#readme"
 }
